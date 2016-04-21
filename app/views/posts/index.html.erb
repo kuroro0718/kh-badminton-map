@@ -1,1 +1,9 @@
 <h1>Welcome to KH Badminton Map</h1>
+
+<div class="post">
+<% @posts.each do |f| %>
+  <%= f.title %>
+<% end %>
+</div>
+
+<%= link_to "新增球聚", new_post_path %>
