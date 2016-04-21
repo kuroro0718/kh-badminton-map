@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :find_params, only: [:show]
   
   def index    
     @posts = Post.all
@@ -7,6 +8,9 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end 
+
+  def show    
+  end
 
   def create    
     @post = Post.create(post_params)

@@ -1,8 +1,8 @@
 <h1>Welcome to KH Badminton Map</h1>
 
 <div class="post">
-<% @posts.each do |f| %>
-  <%= f.title %>
+<% @posts.each do |post| %>
+  <%= link_to post.title, post_path(post) %>
 <% end %>
 </div>
 

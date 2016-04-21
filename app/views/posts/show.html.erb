@@ -1,0 +1,6 @@
+<%= @post.title %>
+<%= @post.location %>
+<%= Date::DAYNAMES[@post.day.to_i] %>
+<%= @post.comment %>
+
+<%= link_to "上一頁", posts_path %>
