@@ -1,9 +1,17 @@
 <h1>Welcome to KH Badminton Map</h1>
 
-<div class="post">
-<% @posts.each do |post| %>
-  <%= link_to post.title, post_path(post) %>
-<% end %>
-</div>
+<table style="width:100%;">  
+  <tr>
+    <td>球隊名稱</td>
+    <td></td>
+  </tr>
+  <% @posts.each do |post| %>
+    <tr>    
+      <td><%= link_to post.title, post_path(post) %></td>
+      <td><%= link_to "刪除", post_path(post), method: :delete, data: { confirm: "Are you sure?" } %></td>    
+    </tr>
+  <% end %>
+</table>
 
+<br>
 <%= link_to "新增球聚", new_post_path %>
