@@ -2,9 +2,11 @@
   <%= f.input :title %>
   <%= f.input :location %>
   <%= f.label :球聚時間 %>
-  <%= f.select :day, Date::DAYNAMES.zip((0..6).to_a) %>
+  <%= f.select :day, I18n.t(:"date.day_names") %>
   <%= f.input :comment %>
-  
-  <%= link_to "Cancel", posts_path %>
-  <%= f.submit :submit, data: { disable_with: "Submitting..."} %>
+ 
+  <p>
+    <%= link_to "Cancel", posts_path %>
+    <%= f.submit :submit, data: { disable_with: "Submitting..."} %>
+  </p> 
 <% end %>

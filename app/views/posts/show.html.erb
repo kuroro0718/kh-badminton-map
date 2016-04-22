@@ -1,7 +1,20 @@
-<%= @post.title %>
-<%= @post.location %>
-<%= Date::DAYNAMES[@post.day.to_i] %>
-<%= @post.comment %>
+<p>
+  <%= @post.title %>
+</p>
 
-<%= link_to "上一頁", posts_path %>
-<%= link_to "編輯", edit_post_path(@post) %>
+<p>
+  <%= @post.location %>
+</p>
+
+<p>
+  <%= I18n.t(:"date.day_names")[@post.day.to_i] %>
+</p>
+
+<section id="comments">
+  <%= @post.comment %>
+</section>
+
+<p>
+  <%= link_to "上一頁", posts_path %>
+  <%= link_to "編輯", edit_post_path(@post) %>
+</p>
