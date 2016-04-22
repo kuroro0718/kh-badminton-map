@@ -1,17 +1,17 @@
-<p>
+<h2>
   <%= @post.title %>
+</h2>
+
+<p>
+  地點：<%= @post.location %>
 </p>
 
 <p>
-  <%= @post.location %>
-</p>
-
-<p>
-  <%= I18n.t(:"date.day_names")[@post.day.to_i] %>
+  時間：<%= next_meetup_date(@post.day.to_i) %>
 </p>
 
 <section id="comments">
-  <%= @post.comment %>
+  備註：<%= @post.comment %>
 </section>
 
 <p>

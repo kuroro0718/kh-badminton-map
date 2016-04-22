@@ -1,9 +1,13 @@
 <%= simple_form_for @post do |f| %>
-  <%= f.input :title %>
-  <%= f.input :location %>
-  <%= f.label :球聚時間 %>
-  <%= f.select :day, I18n.t(:"date.day_names") %>
-  <%= f.input :comment %>
+  <%= f.input :title, label: '隊名' %>
+  
+  <%= f.input :location, label: '地點' %>
+  
+  <p>
+    球聚時間：每週 <%= f.select :day, t(:"date.day_names").zip((0..6).to_a) %>
+  </p>
+   
+  <%= f.input :comment, label: '備助', placeholder: '請註明零打費用及程度要求' %>
  
   <p>
     <%= link_to "Cancel", posts_path %>
