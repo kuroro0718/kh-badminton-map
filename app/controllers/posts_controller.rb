@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :find_params, only: [:show]
-  
+  before_action :find_params, only: [:show, :edit, :update]
+
   def index    
     @posts = Post.all
   end
@@ -12,6 +12,9 @@ class PostsController < ApplicationController
   def show    
   end
 
+  def edit
+  end
+
   def create    
     @post = Post.create(post_params)
     
@@ -21,6 +24,14 @@ class PostsController < ApplicationController
       render :new
     end
   end 
+
+  def update
+    if @post.update(post_params)
+      redirect_to posts_path
+    else
+      render :edit
+    end
+  end
 
   private
 

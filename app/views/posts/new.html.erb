@@ -1,11 +1,4 @@
 <h2>新增球聚</h2>
 
-<%= simple_form_for @post do |f| %>
-  <%= f.input :title %>
-  <%= f.input :location %>
-  <%= f.label :球聚時間 %>
-  <%= f.select :day, Date::DAYNAMES.zip((0..6).to_a) %>
-  <%= f.input :comment %>
-  <%= f.submit "張貼球聚", data: { disable_with: "Submitting..."} %>
-<% end %>
+<%= render 'form' %>
 
