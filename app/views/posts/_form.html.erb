@@ -1,7 +1,7 @@
 <%= simple_form_for @post do |f| %>
   <%= f.input :title, label: '隊名' %>
   
-  <%= f.input :location, label: '地點' %>
+  <%= f.input :address, label: '地點' %>
   
   <p>
     球聚時間：每週 <%= f.select :day, t(:"date.day_names").zip((0..6).to_a) %>

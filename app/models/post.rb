@@ -1,3 +1,5 @@
 class Post < ActiveRecord::Base
-  validates :title, :location, presence: true
+  validates :title, :address, presence: true
+  geocoded_by :address
+  after_validation :geocode
 end
