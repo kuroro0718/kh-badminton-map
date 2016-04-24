@@ -10,7 +10,7 @@
   <%= f.input :comment, label: '備註', placeholder: '請註明零打費用及程度要求' %>
  
   <p>
-    <%= link_to "Cancel", posts_path %>
-    <%= f.submit :submit, data: { disable_with: "Submitting..."} %>
+    <%= link_to "Cancel", posts_path, class: "btn btn-default" %>
+    <%= f.submit :submit, data: { disable_with: "Submitting..."}, class: "btn btn-primary" %>
   </p> 
 <% end %>
