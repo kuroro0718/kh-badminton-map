@@ -7,7 +7,7 @@
     球聚時間：每週 <%= f.select :day, t(:"date.day_names").zip((0..6).to_a) %>
   </p>
    
-  <%= f.input :comment, label: '備助', placeholder: '請註明零打費用及程度要求' %>
+  <%= f.input :comment, label: '備註', placeholder: '請註明零打費用及程度要求' %>
  
   <p>
     <%= link_to "Cancel", posts_path %>
