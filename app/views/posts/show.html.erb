@@ -6,6 +6,10 @@
   <%= @post.title %>
 </h2>
 
+<div class="col-md-offset-6">
+  <%= image_tag @post.image.url(:medium) %>
+</div>
+
 <p>
   地點：<%= @post.address %>
 </p>

@@ -8,7 +8,11 @@
   </p>
    
   <%= f.input :comment, label: '備註', placeholder: '請註明零打費用及程度要求' %>
- 
+  
+  <p>
+    <%= f.input :image, as: :file, label: '球隊照片' %>
+  </p>
+  
   <p>
     <%= link_to "Cancel", posts_path, class: "btn btn-default" %>
     <%= f.submit :submit, data: { disable_with: "Submitting..."}, class: "btn btn-primary" %>
