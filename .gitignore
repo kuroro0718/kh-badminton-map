@@ -17,3 +17,6 @@
 /tmp
 /config/*.yml
 dump.rdb
+
+# Ignore application configuration
+/config/application.yml
