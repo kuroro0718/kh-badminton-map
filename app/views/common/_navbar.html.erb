@@ -1,4 +1,4 @@
-<navbar class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -12,9 +12,9 @@
         <form class="navbar-form navbar-left" role="search">
           <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
             <div class="form-group">
-              <%= text_field_tag :search, params[:search], placeholder: "依球聚地點尋找" %>
-              <%= submit_tag "Search" %>  
+              <%= text_field_tag :search, params[:search], placeholder: "依球聚地點尋找", class: 'form-control' %>               
             </div>
+            <%= submit_tag "Search", class: "btn btn-default" %> 
           <% end %>
         </form>
 
@@ -33,4 +33,4 @@
       </ul>      
     </div>  
   </div>
-</navbar>
+</nav>
