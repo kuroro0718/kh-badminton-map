@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_params, only: [:show, :edit, :update, :destroy]
+  before_action :find_params, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   def index    
@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   end 
 
   def show 
+    @post = Post.find(params[:id])
     @hash = Gmaps4rails.build_markers(@post) do |post, marker|
       marker.lat post.latitude
       marker.lng post.longitude
@@ -56,6 +57,6 @@ class PostsController < ApplicationController
   end
 
   def find_params
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 end
