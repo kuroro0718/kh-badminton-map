@@ -1,7 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+puts "This seed file will create 100 posts with 10 different address"
+
+city = '高雄市'
+district_table = ['左營區', '小港區', '三民區', '鼓山區', '前金區', '前鎮區', '新興區', '苓雅區', '楠梓區', '大社區']
+road = '文學路330巷44號'
+
+create_posts = for i in 0..99 do
+  Post.create!([title: "球聚#{i}", address: city+district_table[Random.new.rand(9)]+road])
+end
