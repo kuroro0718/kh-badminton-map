@@ -9,7 +9,7 @@
   <p><%= f.input :image, as: :file, label: '球隊照片' %></p>
   
   <p>
-    <%= link_to "Cancel", post_path, class: "btn btn-default" %>
+    <%= link_to "Cancel", root_path, class: "btn btn-default" %>
     <%= f.submit :submit, data: { disable_with: "Submitting..."}, class: "btn btn-primary" %>
   </p> 
 <% end %>
