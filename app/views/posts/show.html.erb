@@ -8,7 +8,7 @@
       <h2><%= @post.title %></h2>
       <p>地點：<%= @post.address %></p> 
       <p>時間：<%= next_meetup_date(@post.day.to_i) %></p>
-      <p>備註：<%= @post.comment %></p>
+      <p>備註：<%= simple_format(@post.comment) %></p>
     </div>
     <%= link_to "上一頁", posts_path, class: "btn btn-default" %>
     <% if current_user %>
