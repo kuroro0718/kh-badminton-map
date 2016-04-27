@@ -4,12 +4,12 @@
   
   <p>球聚時間：每週 <%= f.select :day, t(:"date.day_names").zip((0..6).to_a) %></p>
    
-  <%= f.input :comment, label: '備註', placeholder: '請註明零打費用及程度要求' %>
+  <p><%= f.input :comment, label: '備註', placeholder: '請註明零打費用及程度要求' %></p>
   
   <p><%= f.input :image, as: :file, label: '球隊照片' %></p>
   
   <p>
     <%= link_to "Cancel", root_path, class: "btn btn-default" %>
-    <%= f.submit :submit, data: { disable_with: "Submitting..."}, class: "btn btn-primary" %>
+    <%= f.submit :更新, data: { disable_with: "Submitting..."}, class: "btn btn-primary" %>
   </p> 
 <% end %>
