@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   end
 
   def create    
-    @post = Post.create(post_params)
+    @post = current_user.posts.create(post_params)
     
     if @post.save
       redirect_to posts_path
@@ -56,6 +56,6 @@ class PostsController < ApplicationController
   end
 
   def find_params
-    @post = Post.friendly.find(params[:id])
+    @post = current_user.posts.friendly.find(params[:id])
   end
 end
