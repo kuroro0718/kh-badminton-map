@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
 
-  has_many :posts
+  has_many :meetups
   has_many :attendees
-  has_many :participated_posts, through: :attendees, source: :post
+  has_many :participated_meetups, through: :attendees, source: :meetup
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -27,14 +27,14 @@ class User < ActiveRecord::Base
   end
 
   def join!(post)
-    participated_posts << post
+    participated_meetups << post
   end
 
   def quit!(post)
-    participated_posts.delete(post)
+    participated_meetups.delete(post)
   end
 
   def is_attendee_of?(post)
-    participated_posts.include?(post)
+    participated_meetups.include?(post)
   end
 end

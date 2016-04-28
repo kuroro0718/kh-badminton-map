@@ -1,13 +1,13 @@
-<% @posts.each_slice(3) do |posts| %>
+<% @meetups.each_slice(3) do |meetups| %>
   <div class="row">
-    <% posts.each do |post| %>
+    <% meetups.each do |meetup| %>
       <div class="col-md-4">
         <div class="meetup">
           <div class="image_wrapper">
-            <%= link_to post do %>
-              <%= image_tag post.image.url(:medium) %>
+            <%= link_to meetup do %>
+              <%= image_tag meetup.image.url(:medium) %>
             <% end %>
-            <h2><%= post.title %></h2>  
+            <h2><%= meetup.title %></h2>  
           </div>
         </div>
       </div>

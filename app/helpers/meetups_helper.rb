@@ -1,4 +1,4 @@
-module PostsHelper
+module MeetupsHelper
   def calculate_date(day_offset)
     meetup_day = day_offset
     current_day = Time.now.wday   
