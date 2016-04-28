@@ -27,6 +27,7 @@ class PostsController < ApplicationController
 
   def create    
     @post = current_user.posts.create(post_params)
+    @post.organizer = current_user
     
     if @post.save
       redirect_to posts_path

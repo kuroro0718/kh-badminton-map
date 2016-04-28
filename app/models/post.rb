@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
-  belongs_to :user
+  belongs_to :organizer, class_name: "User", foreign_key: :user_id
+  has_many :registrations
 
   validates :title, :address, presence: true
   geocoded_by :address
@@ -12,5 +13,9 @@ class Post < ActiveRecord::Base
 
   def self.search(search)
     where("address LIKE?", "%#{search}%")
+  end
+
+  def editable_by?(user)
+    user && user == organizer
   end
 end
