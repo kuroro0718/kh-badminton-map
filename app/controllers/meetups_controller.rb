@@ -30,6 +30,7 @@ class MeetupsController < ApplicationController
     @meetup.organizer = current_user
     
     if @meetup.save
+      flash[:notice] = "新增球聚"
       redirect_to meetups_path
     else
       render :new
@@ -38,6 +39,7 @@ class MeetupsController < ApplicationController
 
   def update
     if @meetup.update(meetup_params)
+      flash[:warning] = "修改完成"
       redirect_to meetup_path
     else
       render :edit
@@ -47,6 +49,7 @@ class MeetupsController < ApplicationController
   def destroy
     @meetup.destroy
 
+    flash[:alert] = "己刪除"
     redirect_to meetups_path
   end
 
@@ -54,6 +57,7 @@ class MeetupsController < ApplicationController
     @meetup = Meetup.friendly.find(params[:id])    
     current_user.join!(@meetup) 
 
+    flash[:notice] = "報名成功！"
     redirect_to meetup_path(@meetup)
   end
 
