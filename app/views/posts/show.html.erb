@@ -9,9 +9,16 @@
       <p>地點：<%= @post.address %></p> 
       <p>時間：<%= next_meetup_date(@post.day.to_i) %></p>
       <p>備註：<%= simple_format(@post.comment) %></p>
+      <p>報名人數：<%= @post.attendees.count %></p> 
     </div>
     <%= link_to "上一頁", posts_path, class: "btn btn-default" %>
-    
+      
+    <% if !current_user.is_attendee_of?(@post) %>
+      <%= link_to "報名", join_post_path(@post), method: :post, class: "btn btn-default" %>   
+    <% else %>
+      <%= link_to "取消報名", quit_post_path(@post), method: :post, class: "btn btn-default" %>
+    <% end %> 
+
     <% if @post.editable_by?(current_user) %>
       <%= link_to "編輯", edit_post_path(@post), class: "btn btn-primary" %>  
       <%= link_to "刪除", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>

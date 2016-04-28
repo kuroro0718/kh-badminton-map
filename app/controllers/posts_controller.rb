@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_params, only: [:edit, :update, :destroy, :show]
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :join]
 
   def index    
     @posts = Post.all
@@ -48,6 +48,20 @@ class PostsController < ApplicationController
     @post.destroy
 
     redirect_to posts_path
+  end
+
+  def join
+    @post = Post.friendly.find(params[:id])    
+    current_user.join!(@post) 
+
+    redirect_to post_path(@post)
+  end
+
+  def quit 
+    @post = Post.friendly.find(params[:id])    
+    current_user.quit!(@post) 
+
+    redirect_to post_path(@post) 
   end
 
   private

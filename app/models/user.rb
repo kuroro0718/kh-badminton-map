@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :posts
+  has_many :attendees
+  has_many :participated_posts, through: :attendees, source: :post
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -22,5 +24,17 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  def join!(post)
+    participated_posts << post
+  end
+
+  def quit!(post)
+    participated_posts.delete(post)
+  end
+
+  def is_attendee_of?(post)
+    participated_posts.include?(post)
   end
 end
