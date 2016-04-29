@@ -1,0 +1,21 @@
+<div class="col-md-8 col-md-offset-2">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>球隊</th>
+        <th>聚會時間</th>          
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @meetups.each do |meetup| %>
+        <tr>
+          <th></th>
+          <th><%= link_to meetup.title, meetup_path(meetup) %></th>
+          <th><%= next_meetup_date(meetup.day.to_i) %></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

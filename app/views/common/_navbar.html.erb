@@ -27,6 +27,8 @@
             <ul class="dropdown-menu">
               <li><%= link_to "登出", destroy_user_session_path, method: :delete %></li>
               <li><%= link_to "帳戶設定", edit_user_registration_path %></li>
+              <li><%= link_to "張貼的活動", account_meetups_path %></li>
+              <li><%= link_to "報名的活動", account_attendees_path %></li>
             </ul>
           </li>           
         <% end %>      
