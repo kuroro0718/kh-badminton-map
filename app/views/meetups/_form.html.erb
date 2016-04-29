@@ -2,7 +2,7 @@
   <%= f.input :title, label: '隊名' %>
   <%= f.input :address, label: '地點' %>
   
-  <p>球聚時間：每週 <%= f.select :day, t(:"date.day_names").zip((0..6).to_a) %></p>
+  <p>球聚時間：每週 <%= f.select :day, t(:"date.day_names").zip((0..6).to_a) %> <%= f.select :start_time, t(:"time.hours").zip((0..23).to_a) %>到<%= f.select :end_time, t(:"time.hours").zip((0..23).to_a) %></p>
    
   <p><%= f.input :comment, label: '備註', placeholder: '請註明零打費用及程度要求' %></p>
   

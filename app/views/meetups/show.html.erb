@@ -7,7 +7,7 @@
     <div class="meetup">
       <h2><%= @meetup.title %></h2>
       <p>地點：<%= @meetup.address %></p> 
-      <p>時間：<%= next_meetup_date(@meetup.day.to_i) %></p>
+      <p>時間：<%= next_meetup_date(@meetup) %></p> 
       <p>備註：<%= simple_format(@meetup.comment) %></p>
       <p>報名人數：<%= @meetup.attendees.count %></p> 
     </div>
