@@ -13,7 +13,7 @@
         <tr>
           <th></th>
           <th><%= link_to meetup.title, meetup_path(meetup) %></th>
-          <th><%= next_meetup_date(meetup.day.to_i) %></th>
+          <th><%= next_meetup_date(meetup) %></th>
         </tr>
       <% end %>
     </tbody>

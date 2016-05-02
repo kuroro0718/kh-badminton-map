@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429035211) do
+ActiveRecord::Schema.define(version: 20160502132652) do
 
   create_table "attendees", force: :cascade do |t|
     t.integer  "meetup_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160429035211) do
     t.string   "slug"
     t.string   "start_time"
     t.string   "end_time"
+    t.string   "image"
   end
 
   create_table "users", force: :cascade do |t|

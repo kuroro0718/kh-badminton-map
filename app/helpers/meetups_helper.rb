@@ -1,7 +1,7 @@
 module MeetupsHelper
   def next_meetup_date(meetup)
     day_offset = meetup.day.to_i
-    calculate_date(day_offset) + ' (' + I18n.t(:"date.day_names")[day_offset] + ') ' + next_meetup_time(meetup)
+    calculate_date(day_offset) + next_meetup_time(meetup)
   end
 
   def calculate_date(day_offset)
@@ -12,7 +12,7 @@ module MeetupsHelper
     if meetup_day < current_day 
       next_date += 7.days  # Next week
     end
-    next_date.strftime('%Y/%m/%d')
+    next_date.strftime('%Y/%m/%d') + ' (' + I18n.t(:"date.day_names")[day_offset] + ') '
   end
 
   def next_meetup_time(meetup)
