@@ -1,4 +1,16 @@
 module MeetupsHelper
+  def registration_status(meetup)
+    if is_meetup_available?(meetup)
+      meetup.attendees.count.to_s + '  (上限：' + meetup.attendee_limit.to_s + ')'
+    else
+      '己額滿'
+    end
+  end
+
+  def is_meetup_available?(meetup)
+    meetup.attendee_limit > meetup.attendees.count  
+  end
+
   def next_meetup_date(meetup)
     day_offset = meetup.day.to_i
     calculate_date(day_offset) + next_meetup_time(meetup)

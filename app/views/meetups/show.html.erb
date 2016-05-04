@@ -9,15 +9,11 @@
       <p>地點：<%= @meetup.address %></p> 
       <p>時間：<%= next_meetup_date(@meetup) %></p> 
       <p>備註：<%= simple_format(@meetup.comment) %></p>
-      <p>報名人數：<%= @meetup.attendees.count %></p> 
+      <p>報名人數：<%= registration_status(@meetup) %></p> 
     </div>
     <%= link_to "上一頁", meetups_path, class: "btn btn-default" %>
       
-    <% if !current_user.is_attendee_of?(@meetup) %>
-      <%= link_to "報名", join_meetup_path(@meetup), method: :meetup, class: "btn btn-default" %>   
-    <% else %>
-      <%= link_to "取消報名", quit_meetup_path(@meetup), method: :meetup, class: "btn btn-default" %>
-    <% end %> 
+    <%= render 'sign_up' %>
 
     <% if @meetup.editable_by?(current_user) %>
       <%= link_to "編輯", edit_meetup_path(@meetup), class: "btn btn-primary" %>  

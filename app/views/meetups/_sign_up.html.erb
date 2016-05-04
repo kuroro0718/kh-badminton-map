@@ -1,0 +1,7 @@
+<% if !current_user.is_attendee_of?(@meetup) %>
+  <% if is_meetup_available?(@meetup) %>
+    <%= link_to "報名", join_meetup_path(@meetup), method: :meetup, class: "btn btn-default" %>     
+  <% end %>
+<% else %>
+  <%= link_to "取消報名", quit_meetup_path(@meetup), method: :meetup, class: "btn btn-default" %>
+<% end %> 
