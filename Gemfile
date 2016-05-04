@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
-gem 'sqlite3'
+gem 'sqlite3', group: :development
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -16,9 +16,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
-gem "paperclip", "~> 5.0.0.beta1"
+gem "paperclip", '~> 4.3.6'
 gem 'awesome_rails_console'
 gem 'friendly_id', '~> 5.1.0'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -33,3 +34,7 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem "pg"
+  gem "rails_12factor"
+end
