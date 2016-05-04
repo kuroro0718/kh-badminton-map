@@ -1,6 +1,6 @@
 class MeetupsController < ApplicationController
-  before_action :find_params, only: [:edit, :update, :destroy, :show]
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :join]
+  before_action :find_params, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :join, :quit]
 
   def index    
     @meetups = Meetup.all
@@ -16,6 +16,7 @@ class MeetupsController < ApplicationController
   end 
 
   def show 
+    @meetup = Meetup.friendly.find(params[:id])
     @hash = Gmaps4rails.build_markers(@meetup) do |meetup, marker|
       marker.lat meetup.latitude
       marker.lng meetup.longitude
@@ -65,6 +66,7 @@ class MeetupsController < ApplicationController
     @meetup = Meetup.friendly.find(params[:id])    
     current_user.quit!(@meetup) 
 
+    flash[:notice] = "取消報名！"
     redirect_to meetup_path(@meetup) 
   end
 
